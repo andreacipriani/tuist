@@ -21,7 +21,7 @@ final class RootDirectoryLocator: RootDirectoryLocating {
     func locate(from path: AbsolutePath) -> AbsolutePath? {
         if let cachedDirectory = cached(path: path) {
             return cachedDirectory
-        } else if let tuistDirectory = FileHandler.shared.locateDirectory(Constants.tuistFolderName, traversingFrom: path) {
+        } else if let tuistDirectory = FileHandler.shared.locateDirectory(Constants.tuistDirectoryName, traversingFrom: path) {
             let rootDirectory = tuistDirectory.parentDirectory
             cache(rootDirectory: rootDirectory, for: path)
             return rootDirectory
